@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AiFillStar } from "react-icons/ai";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
-const DealWeekDetails = () => {
+const ProductCard = () => {
   return (
     <div>
       {/* Card Image */}
@@ -73,4 +73,4 @@ const DealWeekDetails = () => {
   );
 };
 
-export default DealWeekDetails;
+export default ProductCard;

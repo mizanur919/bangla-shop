@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import Link from "next/link";
 
-import DealWeekDetails from "./DealWeekDetails";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 // Import Swiper React components
@@ -12,6 +11,7 @@ import { Navigation } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import ProductCard from "../../../../reusable/ProductCard";
 
 const DealWeek = () => {
   const prevRef = useRef(null);
@@ -69,25 +69,28 @@ const DealWeek = () => {
           }}
         >
           <SwiperSlide>
-            <DealWeekDetails />
+            <ProductCard />
           </SwiperSlide>
           <SwiperSlide>
-            <DealWeekDetails />
+            <ProductCard />
           </SwiperSlide>
           <SwiperSlide>
-            <DealWeekDetails />
+            <ProductCard />
           </SwiperSlide>
           <SwiperSlide>
-            <DealWeekDetails />
+            <ProductCard />
           </SwiperSlide>
           <SwiperSlide>
-            <DealWeekDetails />
+            <ProductCard />
           </SwiperSlide>
           <SwiperSlide>
-            <DealWeekDetails />
+            <ProductCard />
           </SwiperSlide>
           <SwiperSlide>
-            <DealWeekDetails />
+            <ProductCard />
+          </SwiperSlide>
+          <SwiperSlide>
+            <ProductCard />
           </SwiperSlide>
         </Swiper>
       </div>
