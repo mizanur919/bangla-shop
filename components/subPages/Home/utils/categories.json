@@ -2,51 +2,50 @@
   {
     "id": 1,
     "img": "/images/cat-1.png",
-    "title": "Grocery"
+    "title": "Grocery",
+    "value": "Grocery",
+    "label": "Grocery"
   },
   {
     "id": 2,
     "img": "/images/cat-2.png",
-    "title": "Fish"
+    "title": "Fish",
+    "value": "Fish",
+    "label": "Fish"
   },
   {
     "id": 3,
     "img": "/images/cat-6.png",
-    "title": "Meat"
+    "title": "Meat",
+    "value": "Meat",
+    "label": "Meat"
   },
   {
     "id": 4,
     "img": "/images/cat-4.png",
-    "title": "Vegetables"
+    "title": "Vegetables",
+    "value": "Vegetables",
+    "label": "Vegetables"
   },
   {
     "id": 5,
     "img": "/images/cat-5.png",
-    "title": "Fruits"
+    "title": "Fruits",
+    "value": "Fruits",
+    "label": "Fruits"
   },
   {
     "id": 6,
     "img": "/images/cat-3.png",
-    "title": "Ice Cream"
+    "title": "Ice Cream",
+    "value": "Ice Cream",
+    "label": "Ice Cream"
   },
   {
     "id": 7,
     "img": "/images/cat-1.png",
-    "title": "Grocery"
-  },
-  {
-    "id": 8,
-    "img": "/images/cat-2.png",
-    "title": "Fish"
-  },
-  {
-    "id": 9,
-    "img": "/images/cat-6.png",
-    "title": "Meat"
-  },
-  {
-    "id": 10,
-    "img": "/images/cat-4.png",
-    "title": "Vegetables"
+    "title": "Baby Food",
+    "value": "Baby Food",
+    "label": "Baby Food"
   }
 ]

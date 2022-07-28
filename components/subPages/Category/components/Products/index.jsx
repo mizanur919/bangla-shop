@@ -4,7 +4,7 @@ import ProductsCollection from "./ProductsCollection";
 
 const Products = () => {
   return (
-    <div className="w-3/4">
+    <div className="w-full lg:w-3/4">
       <Banner />
       <Heading />
       <ProductsCollection />

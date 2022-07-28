@@ -3,9 +3,9 @@ import Price from "./Price";
 
 const Sidebar = () => {
   return (
-    <div className="w-1/4">
+    <div className="w-full lg:w-1/4">
       <Categories />
-      {/* <Price /> */}
+      <Price />
     </div>
   );
 };

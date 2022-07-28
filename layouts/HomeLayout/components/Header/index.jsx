@@ -3,9 +3,9 @@ import HeaderTop from "./HeaderTop";
 
 const Header = () => {
   return (
-    <div>
+    <div className="py-8">
       <HeaderTop />
-      <HeaderBottom />
+      {/* <HeaderBottom /> */}
     </div>
   );
 };
