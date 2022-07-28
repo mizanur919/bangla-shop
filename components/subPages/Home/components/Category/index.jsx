@@ -3,7 +3,7 @@ import CategorySlide from "./CategorySlide";
 
 const Category = () => {
   return (
-    <div className="container px-2 md:px-0">
+    <div className="container px-2 md:px-0 mt-28">
       <CategorySlide />
       <CategoryBanner />
     </div>

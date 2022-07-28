@@ -1,32 +1,8 @@
-// import Image from "next/image";
-// import Link from "next/link";
-
-// const CategorySlide = () => {
-//   return (
-//     <div className="">
-//       <div className="flex flex-col justify-center items-center image text-center w-56 h-56 rounded-full border-2 border-gray-seven">
-//         <Link href={"/"}>
-//           <a className="rounded-sm">
-//             <Image
-//               src={"/images/cat-1.png"}
-//               width={110}
-//               height={110}
-//               alt="image one"
-//             />
-//           </a>
-//         </Link>
-//         <p className="font-medium text-lg text-gray-one">Category Name</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CategorySlide;
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import categories from "../../../utils/categories.json";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay } from "swiper";
 import { Navigation } from "swiper";
 
 // Import Swiper styles
@@ -57,10 +33,6 @@ const CategorySlide = () => {
           }}
           modules={[Navigation]}
           breakpoints={{
-            // 50: {
-            //   slidesPerView: 1,
-            //   spaceBetween: 10,
-            // },
             640: {
               slidesPerView: 2,
               spaceBetween: 20,
@@ -83,33 +55,13 @@ const CategorySlide = () => {
             },
           }}
         >
-          <SwiperSlide>
-            <SingleSlide />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SingleSlide />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SingleSlide />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SingleSlide />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SingleSlide />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SingleSlide />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SingleSlide />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SingleSlide />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SingleSlide />
-          </SwiperSlide>
+          {categories.map((category) => {
+            return (
+              <SwiperSlide key={category.id}>
+                <SingleSlide {...category} />
+              </SwiperSlide>
+            );
+          })}
           <SwiperSlide>
             <SingleSlide />
           </SwiperSlide>

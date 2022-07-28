@@ -8,7 +8,7 @@ import HeroSlider from "./components/HeroSlider";
 const HomePage = () => {
   return (
     <HomeLayout>
-      {/* <HeroSlider /> */}
+      <HeroSlider />
       <Category />
       <DealWeek />
       <Brand />

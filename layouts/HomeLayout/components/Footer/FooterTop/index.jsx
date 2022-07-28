@@ -17,7 +17,7 @@ const FooterTop = () => {
           </div>
           <div className="xl:max-w-2xl md:max-w-lg">
             <p className="text-base font-normal text-gray-five md:text-justify">
-              Bangla Shop is the most popular and the best quality provided
+              Bengal Shop is the most popular and the best quality provided
               E-commerce platform where you can buy your daily need. We provide
               the quality product for your satisfaction. we believe in quality
               not quantity.

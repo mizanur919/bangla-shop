@@ -1,47 +1,52 @@
 [
   {
     "id": 1,
-    "img": "/images/brand1.png",
-    "brandName": "brand one"
+    "img": "/images/cat-1.png",
+    "title": "Grocery"
   },
   {
     "id": 2,
-    "img": "/images/brand2.png",
-    "brandName": "brand two"
+    "img": "/images/cat-2.png",
+    "title": "Fish"
   },
   {
     "id": 3,
-    "img": "/images/brand3.png",
-    "brandName": "brand three"
+    "img": "/images/cat-6.png",
+    "title": "Meat"
   },
   {
     "id": 4,
-    "img": "/images/brand4.png",
-    "brandName": "brand four"
+    "img": "/images/cat-4.png",
+    "title": "Vegetables"
   },
   {
     "id": 5,
-    "img": "/images/brand5.png",
-    "brandName": "brand five"
+    "img": "/images/cat-5.png",
+    "title": "Fruits"
   },
   {
     "id": 6,
-    "img": "/images/brand6.png",
-    "brandName": "brand six"
+    "img": "/images/cat-3.png",
+    "title": "Ice Cream"
   },
   {
     "id": 7,
-    "img": "/images/brand1.png",
-    "brandName": "brand seven"
+    "img": "/images/cat-1.png",
+    "title": "Grocery"
   },
   {
     "id": 8,
-    "img": "/images/brand2.png",
-    "brandName": "brand eight"
+    "img": "/images/cat-2.png",
+    "title": "Fish"
   },
   {
     "id": 9,
-    "img": "/images/brand3.png",
-    "brandName": "brand nine"
+    "img": "/images/cat-6.png",
+    "title": "Meat"
+  },
+  {
+    "id": 10,
+    "img": "/images/cat-4.png",
+    "title": "Vegetables"
   }
 ]
