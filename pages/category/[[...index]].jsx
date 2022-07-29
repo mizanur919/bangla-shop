@@ -1,8 +1,10 @@
-import Head from "next/head";
-import HomePage from "../components/subPages/Home";
-export default function Home({ products }) {
-  return <HomePage products={products} />;
-}
+import CategoryPage from "../../components/subPages/Category";
+
+const Category = ({ products }) => {
+  return <CategoryPage products={products} />;
+};
+
+export default Category;
 
 export async function getServerSideProps() {
   const response = await fetch(

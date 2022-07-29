@@ -2,12 +2,12 @@ import HomeLayout from "../../../layouts/HomeLayout";
 import Products from "./components/Products";
 import Sidebar from "./components/Sidebar";
 
-const CategoryPage = () => {
+const CategoryPage = ({ products }) => {
   return (
     <HomeLayout>
       <div className="container flex flex-col lg:flex-row gap-6">
         <Sidebar></Sidebar>
-        <Products></Products>
+        <Products products={products}></Products>
       </div>
     </HomeLayout>
   );

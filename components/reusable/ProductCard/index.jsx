@@ -3,19 +3,21 @@ import Link from "next/link";
 import { AiFillStar } from "react-icons/ai";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
-const ProductCard = () => {
+const ProductCard = ({
+  thumbnailImage,
+  title,
+  rating,
+  previousPrice,
+  price,
+  category,
+}) => {
   return (
     <div>
       {/* Card Image */}
       <div className="image mb-3 relative group">
         <Link href={"/"}>
           <a className="rounded-sm">
-            <Image
-              src={"/images/deal-1.png"}
-              width={405}
-              height={450}
-              alt="image one"
-            />
+            <Image src={thumbnailImage} width={405} height={450} alt={title} />
           </a>
         </Link>
         <div className="hidden absolute top-0 left-0 bg-black opacity-60 w-full h-full group-hover:block"></div>
@@ -41,7 +43,7 @@ const ProductCard = () => {
           </div>
         </div>
         <button className="hidden bg-gray-seven text-gray-eight rounded-t-md py-2 w-full absolute bottom-0 left-0 group-hover:flex justify-center items-center transition-all">
-          <span className="mr-4">Details</span>
+          <span className="mr-4">{category}</span>
           <FaLongArrowAltRight />
         </button>
       </div>
@@ -59,12 +61,12 @@ const ProductCard = () => {
           <AiFillStar color="#FABE50" />
           <span className="ml-1 text-sm font-normal text-gray-five">(121)</span>
         </div>
-        <p className="text-xl font-medium text-gray-one mt-3">Product Name</p>
+        <p className="text-xl font-medium text-gray-one mt-3">{title}</p>
         <div className="price mt-3">
           <p className="text-xl font-medium text-dark-orange">
-            $200{" "}
+            ${price}{" "}
             <span className="line-through font-normal text-lg text-gray-four">
-              $300
+              ${previousPrice}
             </span>
           </p>
         </div>

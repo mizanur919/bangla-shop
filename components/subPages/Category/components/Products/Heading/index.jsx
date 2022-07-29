@@ -1,5 +1,5 @@
 import Link from "next/link";
-const Heading = () => {
+const Heading = ({ products }) => {
   return (
     <div className="py-10">
       <h1 className="text-gray-one text-4xl font-bold">Fruits Collection</h1>
@@ -19,7 +19,7 @@ const Heading = () => {
         </div>
         <div>
           <p className="text-gray-one ">
-            <span className="font-bold">20</span> Products Found
+            <span className="font-bold">{products.length}</span> Products Found
           </p>
         </div>
       </div>

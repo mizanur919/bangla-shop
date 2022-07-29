@@ -25,7 +25,7 @@ const HeaderTop = () => {
           <input
             type="text"
             placeholder="Search here..."
-            className="xl:w-[450px] 2xl:w-[550px] 3xl:w-[667px] border border-gray-six py-4 pl-16 pr-36 rounded-full text-base focus:border-gray-six focus:border focus:outline-none"
+            className="w-[320px] xl:w-[450px] 2xl:w-[550px] 3xl:w-[667px] border border-gray-six py-4 pl-16 pr-36 rounded-full text-base focus:border-gray-six focus:border focus:outline-none"
           />
           <button className="absolute right-2 top-[50%] -translate-y-[50%] bg-gray-five text-white px-8 py-3 rounded-full border-none">
             <span className="text-base">Search</span>

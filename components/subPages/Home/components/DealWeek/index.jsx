@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import ProductCard from "../../../../reusable/ProductCard";
 
-const DealWeek = () => {
+const DealWeek = ({ products }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
@@ -68,7 +68,14 @@ const DealWeek = () => {
             },
           }}
         >
-          <SwiperSlide>
+          {products.map((product) => {
+            return (
+              <SwiperSlide key={product.id}>
+                <ProductCard {...product} />
+              </SwiperSlide>
+            );
+          })}
+          {/* <SwiperSlide>
             <ProductCard />
           </SwiperSlide>
           <SwiperSlide>
@@ -88,10 +95,7 @@ const DealWeek = () => {
           </SwiperSlide>
           <SwiperSlide>
             <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       </div>
     </div>

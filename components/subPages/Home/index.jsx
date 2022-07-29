@@ -5,12 +5,12 @@ import ContactPayment from "./components/ContactPayment";
 import DealWeek from "./components/DealWeek";
 import HeroSlider from "./components/HeroSlider";
 
-const HomePage = () => {
+const HomePage = ({ products }) => {
   return (
     <HomeLayout>
       <HeroSlider />
       <Category />
-      <DealWeek />
+      <DealWeek products={products} />
       <Brand />
       <ContactPayment />
     </HomeLayout>

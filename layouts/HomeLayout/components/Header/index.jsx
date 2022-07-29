@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="py-8">
       <HeaderTop />
-      {/* <HeaderBottom /> */}
+      <HeaderBottom />
     </div>
   );
 };
