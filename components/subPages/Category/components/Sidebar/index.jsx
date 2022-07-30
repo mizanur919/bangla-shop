@@ -1,11 +1,11 @@
 import Categories from "./Categories";
 import Price from "./Price";
 
-const Sidebar = () => {
+const Sidebar = ({ products }) => {
   return (
     <div className="w-full lg:w-1/4">
       <Categories />
-      <Price />
+      <Price products={products} />
     </div>
   );
 };

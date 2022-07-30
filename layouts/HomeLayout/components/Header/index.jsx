@@ -3,7 +3,7 @@ import HeaderTop from "./HeaderTop";
 
 const Header = () => {
   return (
-    <div className="py-8">
+    <div className="lg:py-8">
       <HeaderTop />
       <HeaderBottom />
     </div>

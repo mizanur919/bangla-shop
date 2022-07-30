@@ -2,10 +2,17 @@ import Image from "next/image";
 import { AiFillStar, AiOutlineHeart, AiOutlineShareAlt } from "react-icons/ai";
 import { GoGitCompare } from "react-icons/go";
 
-const ProductDetails = () => {
+const ProductPopup = ({ visible, onClose }) => {
+  if (!visible) return null;
   return (
-    <div className="my-28 bg-slate-300 py-10">
-      <div className="max-w-screen-2xl mx-auto p-10 bg-white">
+    <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-0 flex justify-center items-center z-50">
+      <div className="relative max-w-screen-2xl mx-auto p-7 bg-white rounded-md">
+        <button
+          onClick={onClose}
+          className="bg-red-400 p-3 text-white absolute top-5 right-5 rounded-md hover:bg-red-500"
+        >
+          Close
+        </button>
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-8">
           <div className="text-center lg:text-left mb-10 lg:mb-0">
             <Image
@@ -16,7 +23,6 @@ const ProductDetails = () => {
             />
           </div>
 
-          {/* Product Details */}
           <div>
             <div className="status flex gap-12 items-center text-base mb-2">
               <p className="text-gray-four uppercase font-normal">Status</p>
@@ -131,4 +137,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+export default ProductPopup;

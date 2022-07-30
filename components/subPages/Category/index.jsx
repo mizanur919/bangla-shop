@@ -6,7 +6,7 @@ const CategoryPage = ({ products }) => {
   return (
     <HomeLayout>
       <div className="container flex flex-col lg:flex-row gap-6">
-        <Sidebar></Sidebar>
+        <Sidebar products={products}></Sidebar>
         <Products products={products}></Products>
       </div>
     </HomeLayout>

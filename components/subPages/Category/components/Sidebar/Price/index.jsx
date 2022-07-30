@@ -1,10 +1,13 @@
 import { Slider } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
-const Price = () => {
-  const [val, setVal] = useState([200, 800]);
+import { quantityContext } from "../../../../../../pages/_app";
+const Price = ({ products }) => {
+  const [val, setVal] = useState([10, 800]);
+  const { priceValue, setPriceValue } = useContext(quantityContext);
   const updateVal = (e, item) => {
     setVal(item);
+    setPriceValue(item);
   };
   return (
     <div className="mt-6">

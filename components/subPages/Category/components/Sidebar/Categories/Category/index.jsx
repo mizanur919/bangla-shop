@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import { FaAngleRight } from "react-icons/fa";
+import { quantityContext } from "../../../../../../../pages/_app";
 
 const Category = ({ img, title }) => {
+  const { getCategory, setGetCategory } = useContext(quantityContext);
   return (
     <div>
       <li>
-        <Link href={"/"}>
+        <button onClick={() => setGetCategory(title)}>
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-4">
               <div className="relative w-8 h-8">
@@ -19,7 +21,7 @@ const Category = ({ img, title }) => {
               <FaAngleRight className="text-gray-dark" />
             </div>
           </div>
-        </Link>
+        </button>
         <hr className="bg-[#EBFAEB] opacity-5 my-4" />
       </li>
     </div>

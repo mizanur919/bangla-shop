@@ -45,8 +45,6 @@ const DealWeek = ({ products }) => {
             swiper.navigation.init();
             swiper.navigation.update();
           }}
-          // navigation={true}
-          // loop={true}
           modules={[Navigation]}
           breakpoints={{
             spaceBetween: 0,
@@ -75,27 +73,6 @@ const DealWeek = ({ products }) => {
               </SwiperSlide>
             );
           })}
-          {/* <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide> */}
         </Swiper>
       </div>
     </div>

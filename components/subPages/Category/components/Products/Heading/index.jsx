@@ -2,8 +2,10 @@ import Link from "next/link";
 const Heading = ({ products }) => {
   return (
     <div className="py-10">
-      <h1 className="text-gray-one text-4xl font-bold">Fruits Collection</h1>
-      <div className="flex flex-row justify-between mt-3">
+      <h1 className="text-gray-one text-4xl font-bold text-center md:text-left">
+        Fruits Collection
+      </h1>
+      <div className="hidden  md:flex flex-row justify-between mt-3">
         <div className="flex flex-row gap-4">
           <Link href={"/"}>
             <a className="text-gray-three hover:text-gray-dark">Fruits</a>
