@@ -26,14 +26,16 @@ const HeaderTop = () => {
       <div className="hidden lg:block">
         <div className="flex flex-row justify-between items-center">
           {/* Logo */}
-          <div>
-            <Image
-              src={"/images/logo-full.png"}
-              width={297}
-              height={61}
-              alt="bengal shop logo"
-            />
-          </div>
+          <Link href={"/"}>
+            <div className="cursor-pointer">
+              <Image
+                src={"/images/logo-full.png"}
+                width={297}
+                height={61}
+                alt="bengal shop logo"
+              />
+            </div>
+          </Link>
 
           {/* Search */}
           <div className="relative">

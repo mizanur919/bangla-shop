@@ -14,10 +14,16 @@ const ProductCard = ({
   previousPrice,
   price,
   category,
+  products,
 }) => {
   const [productQuantity, setProductQuantity] = useState(1);
 
-  const { selectedProducts, setSelectedProducts } = useContext(quantityContext);
+  const {
+    selectedProducts,
+    setSelectedProducts,
+    getSingleProduct,
+    setGetSingleProduct,
+  } = useContext(quantityContext);
 
   const handleAdd = () => {
     const data = {
@@ -42,6 +48,16 @@ const ProductCard = ({
   const handleOnClose = () => {
     setShowMyModal(false);
   };
+
+  const handleOnShow = (productId) => {
+    setShowMyModal(true);
+    setGetSingleProduct(productId);
+  };
+
+  // Get Single Product Data
+  const singleProductData = products.find(
+    (product) => product.id === getSingleProduct
+  );
 
   return (
     <div>
@@ -94,7 +110,7 @@ const ProductCard = ({
             </div>
           </div>
           <button
-            onClick={() => setShowMyModal(true)}
+            onClick={() => handleOnShow(id)}
             className="hidden bg-gray-seven text-gray-eight rounded-t-md py-2 w-full absolute bottom-0 left-0 group-hover:flex justify-center items-center transition-all"
           >
             <span className="mr-4">Details</span>
@@ -128,7 +144,11 @@ const ProductCard = ({
           </div>
         </div>
       </div>
-      <ProductPopup onClose={handleOnClose} visible={showMyModal} />
+      <ProductPopup
+        onClose={handleOnClose}
+        visible={showMyModal}
+        singleProductData={singleProductData}
+      />
     </div>
   );
 };

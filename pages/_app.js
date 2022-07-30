@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [priceValue, setPriceValue] = useState([]);
   const [getCategory, setGetCategory] = useState("");
+  const [getSingleProduct, setGetSingleProduct] = useState({});
 
   return (
     <quantityContext.Provider
@@ -18,6 +19,8 @@ function MyApp({ Component, pageProps }) {
         setPriceValue,
         getCategory,
         setGetCategory,
+        getSingleProduct,
+        setGetSingleProduct,
       }}
     >
       <Component {...pageProps} />

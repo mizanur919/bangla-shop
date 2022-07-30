@@ -21,7 +21,13 @@ const ProductsCollection = ({ products }) => {
             {priceValue.length === 0 ? (
               <>
                 {products.slice(0, visible).map((product) => {
-                  return <ProductCard key={product.id} {...product} />;
+                  return (
+                    <ProductCard
+                      key={product.id}
+                      {...product}
+                      products={products}
+                    />
+                  );
                 })}
               </>
             ) : (
@@ -34,7 +40,13 @@ const ProductsCollection = ({ products }) => {
                     );
                   })
                   .map((product) => {
-                    return <ProductCard key={product.id} {...product} />;
+                    return (
+                      <ProductCard
+                        key={product.id}
+                        {...product}
+                        products={products}
+                      />
+                    );
                   })}
               </>
             )}
@@ -44,7 +56,13 @@ const ProductsCollection = ({ products }) => {
             {priceValue.length === 0 ? (
               <>
                 {categoryData.map((product) => {
-                  return <ProductCard key={product.id} {...product} />;
+                  return (
+                    <ProductCard
+                      key={product.id}
+                      {...product}
+                      products={products}
+                    />
+                  );
                 })}
               </>
             ) : (
@@ -57,7 +75,13 @@ const ProductsCollection = ({ products }) => {
                     );
                   })
                   .map((product) => {
-                    return <ProductCard key={product.id} {...product} />;
+                    return (
+                      <ProductCard
+                        key={product.id}
+                        {...product}
+                        products={products}
+                      />
+                    );
                   })}
               </>
             )}
