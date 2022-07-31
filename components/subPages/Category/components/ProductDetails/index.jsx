@@ -4,16 +4,7 @@ import { GoGitCompare } from "react-icons/go";
 
 const ProductPopup = ({ visible, onClose, singleProductData }) => {
   if (!visible) return null;
-  const {
-    title,
-    price,
-    previousPrice,
-    thumbnailImage,
-    description,
-    category,
-    sku,
-    tags,
-  } = singleProductData;
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-0 flex justify-center items-center z-50 overflow-y-scroll overflow-x-scroll">
       <div className="relative max-w-screen-2xl mx-auto p-7 bg-white rounded-md mt-[700px] lg:my-0">
@@ -26,7 +17,7 @@ const ProductPopup = ({ visible, onClose, singleProductData }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-8">
           <div className="text-center lg:text-left mb-10 mt-14 lg:mb-0">
             <Image
-              src={thumbnailImage}
+              src={singleProductData?.thumbnailImage}
               width={600}
               height={600}
               alt="Product image"
@@ -38,7 +29,9 @@ const ProductPopup = ({ visible, onClose, singleProductData }) => {
               <p className="text-gray-four uppercase font-normal">Status</p>
               <p className="font-semibold text-green-two">In Stock</p>
             </div>
-            <h1 className="text-gray-one text-[28px] font-medium">{title}</h1>
+            <h1 className="text-gray-one text-[28px] font-medium">
+              {singleProductData?.title}
+            </h1>
             <div className="flex flex-row items-center mt-3">
               <AiFillStar color="#FABE50" />
               <AiFillStar color="#FABE50" />
@@ -52,10 +45,10 @@ const ProductPopup = ({ visible, onClose, singleProductData }) => {
 
             <div className="price mt-8 flex flex-row items-center gap-6">
               <h3 className="text-gray-one text-2xl md:text-4xl font-semibold">
-                ${price}
+                ${singleProductData?.price}
               </h3>
               <p className="line-through font-normal text-xl md:text-3xl text-gray-three">
-                ${previousPrice}
+                ${singleProductData?.previousPrice}
               </p>
               <p className="font-normal text-base text-gray-three">
                 (+15% Val Included)
@@ -127,12 +120,14 @@ const ProductPopup = ({ visible, onClose, singleProductData }) => {
                 <p className="text-gray-four font-semibold text-base">Tags</p>
               </div>
               <div>
-                <p className="text-gray-five font-semibold text-base">{sku}</p>
+                <p className="text-gray-five font-semibold text-base">
+                  {singleProductData?.sku}
+                </p>
                 <p className="my-5 text-gray-five font-semibold text-base">
-                  {category}
+                  {singleProductData?.category}
                 </p>
                 <p className="text-gray-five font-semibold text-base">
-                  {tags.join(", ")}
+                  {singleProductData?.tags.join(", ")}
                 </p>
               </div>
             </div>

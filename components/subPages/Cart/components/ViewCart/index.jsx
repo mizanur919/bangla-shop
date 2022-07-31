@@ -27,7 +27,9 @@ const ViewCart = () => {
                 </div>
                 <div className="flex justify-center items-center">
                   <div className="pr-8 ">
-                    <span className="text-xs font-medium">${item.price}</span>
+                    <span className="text-xs font-medium">
+                      ${item.price * item.quantity}
+                    </span>
                   </div>
                 </div>
               </div>

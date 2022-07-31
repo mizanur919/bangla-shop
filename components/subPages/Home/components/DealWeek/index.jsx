@@ -35,7 +35,7 @@ const DealWeek = ({ products }) => {
           </div>
         </div>
       </div>
-      <div className="border-2 border border-gray-six my-8"></div>
+      <div className="border-2 border-gray-six my-8"></div>
       <div>
         {/* Swipper JS */}
         <Swiper

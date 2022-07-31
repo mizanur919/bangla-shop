@@ -129,7 +129,7 @@ const CheckoutDetails = () => {
                       <div>
                         <h2 className="text-lg font-bold">{product.title}</h2>
                         <span className="text-gray-five">Price</span> $
-                        {product.price}
+                        {product.price * product.quantity}
                       </div>
                     </div>
                   );
