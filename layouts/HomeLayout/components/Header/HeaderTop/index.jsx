@@ -134,11 +134,11 @@ const HeaderTop = () => {
                     <FaRegHeart className="text-xl" />
                   </div>
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/cart"}>
                   <div className="relative">
                     <MdOutlineShoppingBag className="text-xl text-gray-five" />
                     <a className="absolute -top-6 -right-4 bg-dark-orange w-6 h-6 rounded-full text-white text-xs flex items-center justify-center">
-                      2
+                      {selectedProducts?.length}
                     </a>
                   </div>
                 </Link>

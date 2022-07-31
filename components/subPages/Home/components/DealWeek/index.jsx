@@ -61,7 +61,7 @@ const DealWeek = ({ products }) => {
               spaceBetween: 30,
             },
             1200: {
-              slidesPerView: 5,
+              slidesPerView: 4,
               spaceBetween: 30,
             },
           }}

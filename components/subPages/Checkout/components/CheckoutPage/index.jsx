@@ -194,7 +194,7 @@ const CheckoutDetails = () => {
                 </div>
               </div>
               <button
-                className="mt-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg"
+                className="my-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg"
                 type="submit"
               >
                 Place Order

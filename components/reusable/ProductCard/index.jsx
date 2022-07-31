@@ -79,9 +79,6 @@ const ProductCard = ({
           <button className="hidden bg-black text-white text-base font-medium text-center rounded-md py-2 w-16 absolute top-4 left-4 group-hover:block">
             New
           </button>
-          <button className="hidden bg-black text-white text-base font-medium text-center rounded-md py-2 w-16 absolute top-4 right-4 group-hover:block">
-            Fev
-          </button>
           <div className="hidden group-hover:block absolute top-0 left-0 w-full h-full text-center">
             <div className="absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]">
               <div className="flex flex-row justify-center gap-5">
@@ -128,11 +125,6 @@ const ProductCard = ({
             <a className="font-normal text-gray-four">{category}</a>
           </Link>
           <div className="flex flex-row items-center justify-center mt-3">
-            {/* <AiFillStar color="#FABE50" />
-            <AiFillStar color="#FABE50" />
-            <AiFillStar color="#FABE50" />
-            <AiFillStar color="#FABE50" />
-            <AiFillStar color="#FABE50" /> */}
             <Rating
               className="star-rating text-yellow-five"
               emptySymbol={<AiOutlineStar color="#FABE50" />}

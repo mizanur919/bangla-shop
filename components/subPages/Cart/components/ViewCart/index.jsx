@@ -9,7 +9,7 @@ const ViewCart = () => {
   return (
     <div className="container my-8">
       <h1 className="text-center text-3xl mb-8">Shopping Cart</h1>
-      <div className="w-full md:w-1/2 mx-auto h-[300px] overflow-y-scroll">
+      <div className="w-full lg:w-3/4 mx-auto h-[300px] overflow-y-scroll">
         {selectedProducts.map((item) => {
           return (
             <div key={item.id}>
