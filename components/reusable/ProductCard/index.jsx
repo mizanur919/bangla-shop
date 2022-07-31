@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import Rating from "react-rating";
 import { useState, useContext } from "react";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { quantityContext } from "../../../pages/_app";
 import ProductPopup from "../../subPages/Category/components/ProductDetails";
@@ -127,11 +128,18 @@ const ProductCard = ({
             <a className="font-normal text-gray-four">{category}</a>
           </Link>
           <div className="flex flex-row items-center justify-center mt-3">
+            {/* <AiFillStar color="#FABE50" />
             <AiFillStar color="#FABE50" />
             <AiFillStar color="#FABE50" />
             <AiFillStar color="#FABE50" />
-            <AiFillStar color="#FABE50" />
-            <AiFillStar color="#FABE50" />
+            <AiFillStar color="#FABE50" /> */}
+            <Rating
+              className="star-rating text-yellow-five"
+              emptySymbol={<AiOutlineStar color="#FABE50" />}
+              fullSymbol={<AiFillStar color="#FABE50" />}
+              initialRating={rating}
+              readonly
+            />
             <span className="ml-1 text-sm font-normal text-gray-five">
               (121)
             </span>

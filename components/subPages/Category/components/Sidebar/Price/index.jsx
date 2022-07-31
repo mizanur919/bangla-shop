@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import { quantityContext } from "../../../../../../pages/_app";
 const Price = ({ products }) => {
-  const [val, setVal] = useState([10, 800]);
+  const [val, setVal] = useState([300, 800]);
   const { priceValue, setPriceValue } = useContext(quantityContext);
   const updateVal = (e, item) => {
     setVal(item);

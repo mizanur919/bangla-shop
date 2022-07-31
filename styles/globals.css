@@ -9,4 +9,25 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.css-14pt78w-MuiSlider-rail{
+    background: #828282;
+}
 
+.css-eg0mwd-MuiSlider-thumb{
+    background: #27AE60;
+}
+
+.css-eg0mwd-MuiSlider-thumb::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: white;
+    width: 10px;
+    height: 10px;
+}
+
+.css-1gv0vcd-MuiSlider-track{
+    background: #27AE60;
+    border: none;
+}
