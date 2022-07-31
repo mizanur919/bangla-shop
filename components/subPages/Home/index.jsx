@@ -1,7 +1,7 @@
 import HomeLayout from "../../../layouts/HomeLayout";
+import ContactPayment from "../../reusable/ContactPayment";
 import Brand from "./components/Brand";
 import Category from "./components/Category";
-import ContactPayment from "./components/ContactPayment";
 import DealWeek from "./components/DealWeek";
 import HeroSlider from "./components/HeroSlider";
 

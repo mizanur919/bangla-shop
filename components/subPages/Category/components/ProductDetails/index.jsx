@@ -1,9 +1,17 @@
 import Image from "next/image";
 import { AiFillStar, AiOutlineHeart, AiOutlineShareAlt } from "react-icons/ai";
 import { GoGitCompare } from "react-icons/go";
+import { useDispatch } from "react-redux";
+import { addToWishlist } from "../../../../../store/slices/wishListSlice";
 
 const ProductPopup = ({ visible, onClose, singleProductData }) => {
   if (!visible) return null;
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToWishlist(product));
+  };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-0 flex justify-center items-center z-50 overflow-y-scroll overflow-x-scroll">
@@ -95,10 +103,13 @@ const ProductPopup = ({ visible, onClose, singleProductData }) => {
             </div>
 
             <div className="mt-8 flex flex-row justify-evenly sm:justify-between">
-              <div className="wishlist flex flex-row items-center gap-3 cursor-pointer text-base font-normal">
+              <button
+                onClick={() => handleAddToCart(singleProductData)}
+                className="wishlist flex flex-row items-center gap-3 cursor-pointer text-base font-normal"
+              >
                 <AiOutlineHeart className="text-2xl text-gray-five font-bold" />
                 <p className="hidden sm:block">Add to Wishlist</p>
-              </div>
+              </button>
               <div className="compare flex flex-row items-center gap-3 cursor-pointer">
                 <GoGitCompare className="text-2xl text-gray-five font-bold" />
                 <p className="hidden sm:block">Add to Compare</p>

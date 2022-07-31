@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import * as Yup from "yup";
 import { useContext } from "react";
 import { quantityContext } from "../../../../../pages/_app";
+import { useFormik } from "formik";
 
 const CheckoutDetails = () => {
   const { selectedProducts, setSelectedProducts } = useContext(quantityContext);
@@ -11,10 +13,32 @@ const CheckoutDetails = () => {
     subTotal += product.price * product.quantity;
   });
 
+  // Formik
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      address: "",
+      city: "",
+      postcode: "",
+      notes: "",
+    },
+    validationSchema: Yup.object({
+      firstName: Yup.string().required("First name is required"),
+      lastName: Yup.string().required("Last name is required"),
+      email: Yup.string()
+        .email("Email is invalid")
+        .required("Email is required"),
+      address: Yup.string().required("Address is required"),
+      city: Yup.string().required("City is required"),
+    }),
+  });
+
   return (
     <div className="container my-8">
       <h1 className="text-center text-3xl mb-8">Checkout</h1>
-      <div className="mb-6 bg-gray-four text-white w-48 text-center p-3 text-lg">
+      <div className="mb-6 bg-gray-four border-gray-three text-white w-48 text-center p-3 text-lg">
         <Link href={"/cart"}>
           <a>Back To My Bag</a>
         </Link>
@@ -26,88 +50,156 @@ const CheckoutDetails = () => {
             Shipping Address
           </h2>
           <div className="justify-center w-full mx-auto">
-            <div className="space-x-0 lg:flex lg:space-x-4">
-              <div className="w-full lg:w-1/2">
-                <div className="block mb-3 text-md font-semibold text-gray-500">
-                  First Name
+            <form onSubmit={formik.handleSubmit}>
+              <div className="space-x-0 lg:flex lg:space-x-4">
+                <div className="w-full lg:w-1/2">
+                  <div className="block mb-3 text-md font-semibold text-gray-500">
+                    First Name <span className="text-red-600">*</span>
+                  </div>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.firstName}
+                    placeholder="First Name"
+                    className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
+                  />
+                  {formik.touched.firstName && formik.errors.firstName ? (
+                    <p className="text-red-600">{formik.errors.firstName}</p>
+                  ) : (
+                    <></>
+                  )}
                 </div>
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
-                />
-              </div>
-              <div className="w-full lg:w-1/2 ">
-                <div className="block mb-3 text-md font-semibold text-gray-500">
-                  Last Name
+                <div className="w-full lg:w-1/2 ">
+                  <div className="block mb-3 text-md font-semibold text-gray-500">
+                    Last Name <span className="text-red-600">*</span>
+                  </div>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.lastName}
+                    placeholder="Last Name"
+                    className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
+                  />
+                  {formik.touched.lastName && formik.errors.lastName ? (
+                    <p className="text-red-600">{formik.errors.lastName}</p>
+                  ) : (
+                    <></>
+                  )}
                 </div>
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
-                />
               </div>
-            </div>
-            <div className="mt-4">
-              <div className="w-full">
-                <div className="block mb-3 text-md font-semibold text-gray-500">
-                  Email
+              <div className="mt-4">
+                <div className="w-full">
+                  <div className="block mb-3 text-md font-semibold text-gray-500">
+                    Email <span className="text-red-600">*</span>
+                  </div>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.email}
+                    placeholder="Email Address"
+                    className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
+                  />
+                  {formik.touched.email && formik.errors.email ? (
+                    <p className="text-red-600">{formik.errors.email}</p>
+                  ) : (
+                    <></>
+                  )}
                 </div>
-                <input
-                  type="text"
-                  placeholder="Email Address"
-                  className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
-                />
               </div>
-            </div>
-            <div className="mt-4">
-              <div className="w-full">
-                <div className="block mb-3 text-md font-semibold text-gray-500">
-                  Address
+              <div className="mt-4">
+                <div className="w-full">
+                  <div className="block mb-3 text-md font-semibold text-gray-500">
+                    Address <span className="text-red-600">*</span>
+                  </div>
+                  <textarea
+                    className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
+                    cols={20}
+                    rows={4}
+                    id="address"
+                    name="address"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.address}
+                    placeholder="Address"
+                  />
+                  {formik.touched.address && formik.errors.address ? (
+                    <p className="text-red-600">{formik.errors.address}</p>
+                  ) : (
+                    <></>
+                  )}
                 </div>
-                <textarea
-                  className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
-                  cols={20}
-                  rows={4}
-                  placeholder="Address"
-                />
               </div>
-            </div>
-            <div className="space-x-0 lg:flex lg:space-x-4 mt-3">
-              <div className="w-full lg:w-1/2 ">
-                <div className="block mb-3 text-md font-semibold text-gray-500">
-                  City
+              <div className="space-x-0 lg:flex lg:space-x-4 mt-3">
+                <div className="w-full lg:w-1/2 ">
+                  <div className="block mb-3 text-md font-semibold text-gray-500">
+                    City <span className="text-red-600">*</span>
+                  </div>
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.city}
+                    placeholder="City"
+                    className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
+                  />
+                  {formik.touched.city && formik.errors.city ? (
+                    <p className="text-red-600">{formik.errors.city}</p>
+                  ) : (
+                    <></>
+                  )}
                 </div>
-                <input
-                  type="text"
-                  placeholder="City"
-                  className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
-                />
-              </div>
-              <div className="w-full lg:w-1/2 ">
-                <div className="block mb-3 text-md font-semibold text-gray-500">
-                  Postcode
+                <div className="w-full lg:w-1/2 ">
+                  <div className="block mb-3 text-md font-semibold text-gray-500">
+                    Postcode
+                  </div>
+                  <input
+                    type="text"
+                    id="postcode"
+                    name="postcode"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.postcode}
+                    placeholder="Postcode"
+                    className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
+                  />
                 </div>
-                <input
-                  type="text"
-                  placeholder="Postcode"
-                  className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
-                />
               </div>
-            </div>
-            <div className="relative pt-3 xl:pt-6">
-              <div className="w-full">
-                <div className="block mb-3 text-md font-semibold text-gray-500">
-                  Notes(option)
+              <div className="relative pt-3 xl:pt-6">
+                <div className="w-full">
+                  <div className="block mb-3 text-md font-semibold text-gray-500">
+                    Notes(option)
+                  </div>
+                  <textarea
+                    className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
+                    cols={20}
+                    rows={4}
+                    id="notes"
+                    name="notes"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.notes}
+                    placeholder="Notes for delivery"
+                  />
                 </div>
-                <textarea
-                  className="w-full px-4 py-3 text-sm border border-gray-four rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-green-two focus:border-green-two"
-                  cols={20}
-                  rows={4}
-                  placeholder="Notes for delivery"
-                />
               </div>
-            </div>
+              <button
+                className="mt-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg"
+                type="submit"
+              >
+                Place Order
+              </button>
+            </form>
           </div>
         </div>
         <div className="flex flex-col w-full ml-0 lg:ml-12 lg:w-2/5">
@@ -147,11 +239,6 @@ const CheckoutDetails = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="mt-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg">
-        <Link href={"/cart"}>
-          <a>Place Order</a>
-        </Link>
       </div>
     </div>
   );

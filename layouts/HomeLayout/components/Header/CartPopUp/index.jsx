@@ -31,11 +31,12 @@ const CartPopUp = () => {
             </div>
           );
         })}
+        <p>Total products added: {selectedProducts.length}</p>
         <button onClick={() => setIsCartOpen(!isCartOpen)} className="mb-10">
           <AiOutlineClose className="absolute top-6 right-7 text-3xl bg-gray-four p-2 rounded-full" />
         </button>
         <Link href={"/cart"}>
-          <div className="absolute bottom-2 left-[50%] -translate-x-[50%] bg-green-two text-white w-48 p-4 rounded-lg">
+          <div className="absolute bottom-1 left-[50%] -translate-x-[50%] bg-green-two text-white w-48 p-4 rounded-lg">
             View Cart
           </div>
         </Link>

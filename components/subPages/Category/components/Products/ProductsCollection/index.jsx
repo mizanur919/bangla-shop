@@ -4,7 +4,7 @@ import ProductCard from "../../../../../reusable/ProductCard";
 
 const ProductsCollection = ({ products }) => {
   const [visible, setVisible] = useState(3);
-  const { priceValue, getCategory, setProductCount } =
+  const { priceValue, getCategory, productCount, setProductCount } =
     useContext(quantityContext);
   const categoryData = products.filter(
     (product) => product.category === getCategory
@@ -12,6 +12,7 @@ const ProductsCollection = ({ products }) => {
   const handleLoadMore = () => {
     setVisible(visible + 3);
   };
+  setProductCount(categoryData.length);
 
   return (
     <div>

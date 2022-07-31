@@ -1,12 +1,14 @@
 import "../styles/globals.css";
 import { createContext } from "react";
 import { useState } from "react";
-
+import { Provider } from "react-redux";
+import store from "../store/index";
 export const quantityContext = createContext();
 
 function MyApp({ Component, pageProps }) {
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [priceValue, setPriceValue] = useState([]);
+  const [productCount, setProductCount] = useState([]);
   const [getCategory, setGetCategory] = useState("");
   const [getSingleProduct, setGetSingleProduct] = useState({});
 
@@ -21,9 +23,13 @@ function MyApp({ Component, pageProps }) {
         setGetCategory,
         getSingleProduct,
         setGetSingleProduct,
+        productCount,
+        setProductCount,
       }}
     >
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </quantityContext.Provider>
   );
 }

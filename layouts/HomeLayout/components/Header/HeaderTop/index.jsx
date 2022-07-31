@@ -55,9 +55,6 @@ const HeaderTop = () => {
             <button>
               <div className="relative">
                 <FaRegHeart className="text-xl" />
-                {/* <a className="absolute -top-6 -right-4 bg-dark-orange w-6 h-6 rounded-full text-white text-xs flex items-center justify-center">
-                  3
-                </a> */}
               </div>
             </button>
             <button
@@ -89,13 +86,15 @@ const HeaderTop = () => {
       <div className="block lg:hidden my-4 mx-8">
         <div className="flex flex-row items-center justify-between">
           <div className="relative w-[230px] h-[48px]">
-            <Image
-              src={"/images/logo-full.png"}
-              width={290}
-              height={61}
-              layout="fill"
-              alt="bangla shop logo"
-            />
+            <Link href={"/"}>
+              <Image
+                src={"/images/logo-full.png"}
+                width={290}
+                height={61}
+                layout="fill"
+                alt="bangla shop logo"
+              />
+            </Link>
           </div>
           <div>
             <AiOutlineMenu
@@ -109,7 +108,7 @@ const HeaderTop = () => {
         <></>
       ) : (
         <div
-          className={`absolute z-20 top-0 left-0 block lg:hidden bg-[#ecf0f1] w-10/12 h-full p-10 ${
+          className={`fixed z-20 top-0 left-0 block lg:hidden bg-[#ecf0f1] w-10/12 h-full p-10 shadow-sm shadow-dark-orange ${
             isOpen
               ? "translate-x-0"
               : "translate-x-full transition-all duration-200"
@@ -133,9 +132,6 @@ const HeaderTop = () => {
                 <Link href={"/"}>
                   <div className="relative">
                     <FaRegHeart className="text-xl" />
-                    {/* <a className="absolute -top-6 -right-4 bg-dark-orange w-6 h-6 rounded-full text-white text-xs flex items-center justify-center">
-                      3
-                    </a> */}
                   </div>
                 </Link>
                 <Link href={"/"}>
@@ -159,32 +155,32 @@ const HeaderTop = () => {
             {/* Menu */}
             <nav className="mt-7">
               <ul className="ml-2">
-                <li className="px-3 py-2 mb-1 hover:bg-gray-two">
+                <li className="px-3 py-1 mb-1 hover:bg-gray-two">
                   <Link href={"/"}>
                     <a className="text-xl">Home</a>
                   </Link>
                 </li>
-                <li className="px-3 py-2 mb-1 hover:bg-gray-two">
+                <li className="px-3 py-1 mb-1 hover:bg-gray-two">
                   <Link href={"/category"}>
                     <a className="text-xl">Shop</a>
                   </Link>
                 </li>
-                <li className="px-3 py-2 mb-1 hover:bg-gray-two">
+                <li className="px-3 py-1 mb-1 hover:bg-gray-two">
                   <Link href={"/"}>
                     <a className="text-xl">Pages</a>
                   </Link>
                 </li>
-                <li className="px-3 py-2 mb-1 hover:bg-gray-two">
+                <li className="px-3 py-1 mb-1 hover:bg-gray-two">
                   <Link href={"/"}>
                     <a className="text-xl">Blog</a>
                   </Link>
                 </li>
-                <li className="px-3 py-2 mb-1 hover:bg-gray-two">
+                <li className="px-3 py-1 mb-1 hover:bg-gray-two">
                   <Link href={"/"}>
                     <a className="text-xl">Contact</a>
                   </Link>
                 </li>
-                <li className="px-3 py-2 mb-1 hover:bg-gray-two">
+                <li className="px-3 py-1 mb-1 hover:bg-gray-two">
                   <Link href={"/"}>
                     <a className="text-xl">Track Order</a>
                   </Link>

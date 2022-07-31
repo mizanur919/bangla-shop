@@ -28,6 +28,20 @@ const ViewCart = () => {
                 <div className="flex justify-center items-center">
                   <div className="pr-8 ">
                     <span className="text-xs font-medium">
+                      Quantity {item.quantity}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-center items-center">
+                  <div className="pr-8 ">
+                    <span className="text-xs font-medium">
+                      {item.quantity} &times; {item.price}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-center items-center">
+                  <div className="pr-8 ">
+                    <span className="text-xs font-medium">
                       ${item.price * item.quantity}
                     </span>
                   </div>
