@@ -5,8 +5,6 @@ import { GoGitCompare } from "react-icons/go";
 import { quantityContext } from "../../../../../pages/_app";
 
 const ProductPopup = ({
-  visible,
-  onClose,
   id,
   tags,
   thumbnailImage,
@@ -32,6 +30,7 @@ const ProductPopup = ({
       thumbnailImage,
       rating,
       price,
+      tags,
       category,
       quantity: productQuantity,
     };
@@ -42,23 +41,16 @@ const ProductPopup = ({
       setSelectedProducts((prevItem) => [...prevItem, data]);
     }
   };
-  if (!visible) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-0 flex justify-center items-center z-50 overflow-y-scroll overflow-x-scroll">
-      <div className="relative max-w-screen-2xl mx-auto p-7 bg-white rounded-md mt-[700px] lg:my-0">
-        <button
-          onClick={onClose}
-          className="bg-red-400 p-3 text-white absolute top-5 right-5 rounded-md hover:bg-red-500"
-        >
-          Close
-        </button>
+    <div className="container flex justify-center items-center">
+      <div className="relative p-3 lg:p-7 rounded-md lg:my-0 mx-5 overflow-x-scroll overflow-y-scroll">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-8">
-          <div className="text-center lg:text-left mb-10 mt-14 lg:mb-0">
+          <div className="text-left mb-3 lg:mb-0">
             <Image
               src={thumbnailImage}
-              width={600}
-              height={600}
+              width={400}
+              height={400}
               alt="Product image"
             />
           </div>
@@ -68,8 +60,10 @@ const ProductPopup = ({
               <p className="text-gray-four uppercase font-normal">Status</p>
               <p className="font-semibold text-green-two">In Stock</p>
             </div>
-            <h1 className="text-gray-one text-[28px] font-medium">{title}</h1>
-            <div className="flex flex-row items-center mt-3">
+            <h1 className="text-gray-one text-2xl lg:text-[28px] font-medium">
+              {title}
+            </h1>
+            <div className="flex flex-row items-center mt-1 lg:mt-3">
               <AiFillStar color="#FABE50" />
               <AiFillStar color="#FABE50" />
               <AiFillStar color="#FABE50" />
@@ -80,24 +74,24 @@ const ProductPopup = ({
               </span>
             </div>
 
-            <div className="price mt-8 flex flex-row items-center gap-6">
-              <h3 className="text-gray-one text-2xl md:text-4xl font-semibold">
+            <div className="price mt-2 lg:mt-8 flex flex-row items-center gap-6">
+              <h3 className="text-gray-one text-xl md:text-3xl lg:text-4xl font-semibold">
                 ${price}
               </h3>
-              <p className="line-through font-normal text-xl md:text-3xl text-gray-three">
+              <p className="line-through font-normal text-lg md:text-2xl lg:text-3xl text-gray-three">
                 ${previousPrice}
               </p>
-              <p className="font-normal text-base text-gray-three">
+              <p className="font-normal text-xs text-gray-three">
                 (+15% Val Included)
               </p>
             </div>
-            <p className="text-base text-gray-five font-semibold mt-5">
+            <p className="text-base text-gray-five font-normal lg:font-semibold mt-3 lg:mt-5">
               12 products sold in last 12 hours
             </p>
 
-            <div className="border border-gray-six my-8"></div>
+            <div className="hidden lg:block border border-gray-six my-8"></div>
 
-            <div className="product-count flex flex-row justify-center sm:justify-between items-center gap-10 flex-wrap">
+            <div className="product-count flex flex-row justify-center sm:justify-between items-center gap-4 lg:gap-10 flex-wrap mt-4 lg:mt-0">
               <div>
                 <p className="text-base text-gray-five font-semibold uppercase">
                   Quantity
@@ -110,16 +104,16 @@ const ProductPopup = ({
                       setProductQuantity((prevQ) => prevQ - 1);
                     }
                   }}
-                  className="text-2xl font-thin w-12 h-12 lg:w-14 lg:h-14 border-2 border-gray-six rounded-full hover:bg-gray-seven hover:transition-all"
+                  className="text-2xl font-thin w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 border-2 border-gray-six rounded-full hover:bg-gray-seven hover:transition-all"
                 >
                   -
                 </button>
-                <button className="text-xl font-semibold w-12 h-12 lg:w-14 lg:h-14 bg-gray-seven rounded-full cursor-default">
+                <button className="text-xl font-semibold w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-gray-seven rounded-full cursor-default">
                   {productQuantity}
                 </button>
                 <button
                   onClick={() => setProductQuantity((prevQ) => prevQ + 1)}
-                  className="text-2xl font-thin w-12 h-12 lg:w-14 lg:h-14 border-2  border-gray-six rounded-full hover:bg-gray-seven hover:transition-all"
+                  className="text-2xl font-thin w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 border-2  border-gray-six rounded-full hover:bg-gray-seven hover:transition-all"
                 >
                   +
                 </button>
@@ -129,54 +123,54 @@ const ProductPopup = ({
               </div>
             </div>
 
-            <div className="add-to-card mt-7">
+            <div className="add-to-card mt-3 lg:mt-7">
               <button
                 onClick={handleAdd}
-                className="w-full bg-green-two rounded-full py-2 smd:py-3 lg:py-5 text-md text-white font-light tracking-wide border-2 border-green-two hover:border-2 hover:border-green-two hover:bg-white hover:text-green-two hover:transition-all"
+                className="w-full bg-green-two rounded-full py py-2 smd:py-3 lg:py-5 text-md text-white font-light tracking-wide border-2 border-green-two hover:border-2 hover:border-green-two hover:bg-white hover:text-green-two hover:transition-all"
               >
                 Add to card
               </button>
             </div>
 
-            <div className="add-to-card mt-4">
-              <button className="w-full bg-gray-seven rounded-full py-2 smd:py-3 lg:py-5 text-lg text-gray-five font-semibold tracking-wide hover:bg-slate-100">
+            <div className="add-to-card mt-3">
+              <button className="w-full bg-gray-seven rounded-full py-2 smd:py-3 lg:py-5 text-lg text-gray-five font-normal lg:font-semibold tracking-wide hover:bg-slate-100">
                 Buy Now
               </button>
             </div>
 
-            <div className="mt-8 flex flex-row justify-evenly sm:justify-between">
+            <div className="mt-5 lg:mt-8 flex flex-row justify-left gap-10 lg:gap-0 md:justify-between flex-wrap">
               <button className="wishlist flex flex-row items-center gap-3 cursor-pointer text-base font-normal">
-                <AiOutlineHeart className="text-2xl text-gray-five font-bold" />
-                <p className="hidden sm:block">Add to Wishlist</p>
+                <AiOutlineHeart className="text-xl md:text-2xl text-gray-five font-bold" />
+                <p className="hidden md:block">Add to Wishlist</p>
               </button>
               <div className="compare flex flex-row items-center gap-3 cursor-pointer">
-                <GoGitCompare className="text-2xl text-gray-five font-bold" />
-                <p className="hidden sm:block">Add to Compare</p>
+                <GoGitCompare className="text-xl md:text-2xl text-gray-five font-bold" />
+                <p className="hidden md:block">Add to Compare</p>
               </div>
               <div className="share flex flex-row items-center gap-3 cursor-pointer">
-                <AiOutlineShareAlt className="text-2xl text-gray-five font-bold" />
-                <p className="hidden sm:block">Share</p>
+                <AiOutlineShareAlt className="text-xl md:text-2xl text-gray-five font-bold" />
+                <p className="hidden md:block">Share</p>
               </div>
             </div>
 
-            <div className="border border-gray-six my-8"></div>
+            <div className="hidden lg:block border border-gray-six my-8"></div>
 
-            <div className="flex flex-row gap-y-10 gap-x-10">
+            <div className="flex flex-row gap-y-10 gap-x-10 mt-6 lg:mt-0">
               <div>
                 <p className="text-gray-four font-semibold text-base">SKU</p>
                 <p className="my-5 text-gray-four font-semibold text-base">
                   Category
                 </p>
-                {/* <p className="text-gray-four font-semibold text-base">Tags</p> */}
+                <p className="text-gray-four font-semibold text-base">Tags</p>
               </div>
               <div>
                 <p className="text-gray-five font-semibold text-base">{sku}</p>
                 <p className="my-5 text-gray-five font-semibold text-base">
                   {category}
                 </p>
-                {/* <p className="text-gray-five font-semibold text-base">
-                  {tags.join(", ")}
-                </p> */}
+                <p className="text-gray-five font-semibold text-base">
+                  {tags?.join(", ")}
+                </p>
               </div>
             </div>
           </div>
