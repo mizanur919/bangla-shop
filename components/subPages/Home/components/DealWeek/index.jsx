@@ -69,7 +69,7 @@ const DealWeek = ({ products }) => {
           {products.map((product) => {
             return (
               <SwiperSlide key={product.id}>
-                <ProductCard {...product} />
+                <ProductCard {...product} products={products} />
               </SwiperSlide>
             );
           })}

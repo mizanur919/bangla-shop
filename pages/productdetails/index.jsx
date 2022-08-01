@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState } from "react";
 import { AiFillStar, AiOutlineHeart, AiOutlineShareAlt } from "react-icons/ai";
 import { GoGitCompare } from "react-icons/go";
 

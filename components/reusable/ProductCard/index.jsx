@@ -150,7 +150,7 @@ const ProductCard = ({
       <ProductPopup
         onClose={handleOnClose}
         visible={showMyModal}
-        singleProductData={singleProductData}
+        {...singleProductData}
       />
     </div>
   );
