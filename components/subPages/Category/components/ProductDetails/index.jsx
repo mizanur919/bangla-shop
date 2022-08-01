@@ -44,7 +44,7 @@ const ProductPopup = ({
 
   return (
     <div className="container flex justify-center items-center">
-      <div className="relative p-3 lg:p-7 rounded-md lg:my-0 mx-5 overflow-x-scroll overflow-y-scroll">
+      <div className="relative p-3 lg:p-7 rounded-md lg:my-0 mx-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-8">
           <div className="text-left mb-3 lg:mb-0">
             <Image

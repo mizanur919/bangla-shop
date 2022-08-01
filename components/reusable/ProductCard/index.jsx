@@ -102,38 +102,6 @@ const ProductCard = ({
             </button>
           </div>
         </div>
-        {/* <button
-          onClick={() => handleOnShow(id)}
-          className="hidden bg-gray-seven text-gray-eight rounded-t-md py-2 w-full absolute bottom-0 left-0 group-hover:flex justify-center items-center transition-all"
-        >
-          <span className="mr-4">Details</span>
-          <FaLongArrowAltRight />
-        </button> */}
-
-        {/* <Popup
-          onClick={() => setGetSingleProduct(id)}
-          trigger={
-            <div>
-              <button className="hidden bg-gray-seven text-gray-eight rounded-t-md py-2 w-full absolute bottom-0 left-0 group-hover:flex justify-center items-center transition-all">
-                <span className="mr-4">Details</span>
-                <FaLongArrowAltRight />
-              </button>
-            </div>
-          }
-          modal
-          nested
-        >
-          {(close) => (
-            <div className="modal">
-              <button className="close" onClick={close}>
-                &times;
-              </button>
-              <div className="actions">
-                <ProductPopup {...singleProductData} />
-              </div>
-            </div>
-          )}
-        </Popup> */}
         <button
           type="button"
           className="hidden bg-gray-seven text-gray-eight rounded-t-md py-2 w-full absolute bottom-0 left-0 group-hover:flex justify-center items-center transition-all"
@@ -144,7 +112,10 @@ const ProductCard = ({
         </button>
         <Popup open={open} closeOnDocumentClick onClose={closeModal}>
           <div className="modal">
-            <a className="text-4xl absolute top-2 right-3" onClick={closeModal}>
+            <a
+              className="text-4xl absolute top-2 right-3 cursor-pointer"
+              onClick={closeModal}
+            >
               &times;
             </a>
             <ProductPopup {...singleProductData} />
