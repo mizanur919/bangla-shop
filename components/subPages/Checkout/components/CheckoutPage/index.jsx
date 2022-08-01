@@ -48,7 +48,7 @@ const CheckoutDetails = () => {
             Shipping Address
           </h2>
           <div className="justify-center w-full mx-auto">
-            <form onSubmit={formik.handleSubmit}>
+            <form onSubmit={formik.handleSubmit} action={"/"}>
               <div className="space-x-0 lg:flex lg:space-x-4">
                 <div className="w-full lg:w-1/2">
                   <div className="block mb-3 text-md font-semibold text-gray-500">
@@ -191,18 +191,6 @@ const CheckoutDetails = () => {
                   />
                 </div>
               </div>
-              {/* <button
-                className="my-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg"
-                type="submit"
-              >
-                Place Order
-              </button> */}
-              {/* <button
-                className="my-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg"
-                type="submit"
-              >
-                Place Order
-              </button> */}
               <input
                 type="submit"
                 value="Place Order"
