@@ -38,7 +38,6 @@ const CheckoutDetails = () => {
   return (
     <div className="container my-8">
       <h1 className="text-center text-3xl mb-8">Checkout</h1>
-      
 
       <div className="flex flex-col w-full px-0 mx-auto lg:flex-row">
         <div className="flex flex-col md:w-full">
@@ -189,6 +188,12 @@ const CheckoutDetails = () => {
                   />
                 </div>
               </div>
+              {/* <button
+                className="my-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg"
+                type="submit"
+              >
+                Place Order
+              </button> */}
               <button
                 className="my-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg"
                 type="submit"
