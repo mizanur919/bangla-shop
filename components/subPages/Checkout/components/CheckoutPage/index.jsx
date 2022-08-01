@@ -38,11 +38,7 @@ const CheckoutDetails = () => {
   return (
     <div className="container my-8">
       <h1 className="text-center text-3xl mb-8">Checkout</h1>
-      <div className="mb-6 bg-gray-four border-gray-three text-white w-48 text-center p-3 text-lg">
-        <Link href={"/cart"}>
-          <a>Back To My Bag</a>
-        </Link>
-      </div>
+      
 
       <div className="flex flex-col w-full px-0 mx-auto lg:flex-row">
         <div className="flex flex-col md:w-full">
@@ -193,7 +189,7 @@ const CheckoutDetails = () => {
                   />
                 </div>
               </div>
-              <button onClick=((e) => e.preventDefault())
+              <button
                 className="my-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg"
                 type="submit"
               >
