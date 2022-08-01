@@ -193,7 +193,7 @@ const CheckoutDetails = () => {
                   />
                 </div>
               </div>
-              <button
+              <button onClick=((e) => e.preventDefault())
                 className="my-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg"
                 type="submit"
               >
