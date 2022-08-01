@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import * as Yup from "yup";
 import { useContext } from "react";
@@ -12,6 +13,8 @@ const CheckoutDetails = () => {
   selectedProducts.map((product) => {
     subTotal += product.price * product.quantity;
   });
+
+  const router = useRouter();
 
   // Formik
   const formik = useFormik({
@@ -194,12 +197,17 @@ const CheckoutDetails = () => {
               >
                 Place Order
               </button> */}
-              <button
+              {/* <button
                 className="my-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg"
                 type="submit"
               >
                 Place Order
-              </button>
+              </button> */}
+              <input
+                type="submit"
+                value="Place Order"
+                className="my-10 bg-green-two text-white w-48 text-center mx-auto p-3 text-lg cursor-pointer"
+              />
             </form>
           </div>
         </div>
