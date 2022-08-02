@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const BrandSlideDetails = ({ img, brandName }) => {
   return (
-    <div className="image mb-3 text-center">
+    <div className="mb-3 text-center">
       <Link href={"/"}>
         <a className="rounded-sm">
           <Image src={img} width={140} height={85} alt={brandName} />

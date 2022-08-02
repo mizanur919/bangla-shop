@@ -48,8 +48,8 @@ const DealWeek = ({ products }) => {
           modules={[Navigation]}
           breakpoints={{
             spaceBetween: 0,
-            640: {
-              slidesPerView: 2,
+            768: {
+              slidesPerView: 1,
               spaceBetween: 20,
             },
             768: {

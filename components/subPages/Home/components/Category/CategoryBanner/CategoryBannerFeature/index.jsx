@@ -7,7 +7,7 @@ const CategoryBannerFeature = ({ img, title }) => {
     <div className="bg-pinkLight px-10 py-6 rounded-md">
       <div className="flex flex-row">
         <div className="info flex flex-col justify-evenly">
-          <h3 className="text-gray-one font-bold text-xl md:text-2xl xl:text-[30px]">
+          <h3 className="text-gray-one font-bold text-base smd:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
             {title}
           </h3>
           <div className="w-12 h-12 bg-white rounded-full flex flex-row justify-center items-center">

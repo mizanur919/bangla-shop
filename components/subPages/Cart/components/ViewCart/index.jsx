@@ -52,12 +52,12 @@ const ViewCart = () => {
           );
         })}
       </div>
-      <div className="bg-green-two text-center w-[250px] smd:w-[300px] text-white p-2 rounded-md mx-auto mt-4">
-        <div>
-          <Link href={"/checkout"}>
-            <a>Proceed To Checkout</a>
-          </Link>
-        </div>
+      <div className="w-[250px] mx-auto">
+        <Link href={"/checkout"}>
+          <a className="bg-green-two text-center inline-block smd:w-[300px] text-white p-2 rounded-md mt-4">
+            Proceed To Checkout
+          </a>
+        </Link>
       </div>
     </div>
   );

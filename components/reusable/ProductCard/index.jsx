@@ -59,13 +59,18 @@ const ProductCard = ({
   );
 
   return (
-    <div>
+    <div className="mb-10">
       {/* Card Image */}
-      <div className="mb-3 relative group">
+      <div className="mb-3 relative group overflow-hidden">
         <Link href={"/"}>
-          <a className="rounded-sm">
-            <Image src={thumbnailImage} width={405} height={450} alt={title} />
-          </a>
+          <div className="rounded-sm left-[50%] -translate-x-[50%] relative w-[280px] h-[280px] smd:w-[300px] smd:h-[300px] md:w-[330px] md:h-[330px] 3xl:w-[400px] 3xl:h-[400px] ">
+            <Image
+              src={thumbnailImage}
+              alt="Picture of the author"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
         </Link>
         <div className="hidden absolute top-0 left-0 bg-black opacity-60 w-full h-full group-hover:block"></div>
         <button className="hidden bg-black text-white text-base font-medium text-center rounded-md py-2 w-16 absolute top-4 left-4 group-hover:block">
@@ -113,7 +118,7 @@ const ProductCard = ({
         <Popup open={open} closeOnDocumentClick onClose={closeModal}>
           <div className="modal">
             <a
-              className="text-4xl absolute top-2 right-3 cursor-pointer"
+              className="text-4xl absolute top-0 right-3 cursor-pointer"
               onClick={closeModal}
             >
               &times;

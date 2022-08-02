@@ -35,12 +35,13 @@
 /* Popup */
 
 .popup-content {
-    margin: auto;
-    background: rgb(255, 255, 255);
-    width: 90% !important;
+  margin: 10px auto 0 auto;
+  background: rgb(255, 255, 255);
+  width: 90% !important;
     padding: 5px;
     border-radius: 5px;
   }
+  
   .popup-arrow {
     color: rgb(255, 255, 255);
   }

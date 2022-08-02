@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import * as Yup from "yup";
 import { useContext } from "react";
@@ -8,13 +7,16 @@ import { useFormik } from "formik";
 
 const CheckoutDetails = () => {
   const { selectedProducts, setSelectedProducts } = useContext(quantityContext);
-  const shippingCost = 10;
+  const shippingCost = 0;
+  if (selectedProducts.length != 0) {
+    shippingCost = 10;
+  }
   let subTotal = 0;
   selectedProducts.map((product) => {
     subTotal += product.price * product.quantity;
   });
 
-  const router = useRouter();
+  console.log("selected products", selectedProducts);
 
   // Formik
   const formik = useFormik({
@@ -48,7 +50,7 @@ const CheckoutDetails = () => {
             Shipping Address
           </h2>
           <div className="justify-center w-full mx-auto">
-            <form onSubmit={formik.handleSubmit} action={"/"}>
+            <form onSubmit={formik.handleSubmit}>
               <div className="space-x-0 lg:flex lg:space-x-4">
                 <div className="w-full lg:w-1/2">
                   <div className="block mb-3 text-md font-semibold text-gray-500">

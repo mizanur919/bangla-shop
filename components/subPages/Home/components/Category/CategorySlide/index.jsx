@@ -17,7 +17,7 @@ const CategorySlide = () => {
   return (
     <div className="md:container px-2 md:px-0">
       {/* Swipper JS */}
-      <div className="flex flex-row items-center justify-between gap-6">
+      <div className="flex flex-row items-center justify-between gap-4">
         <div ref={prevRef}>
           <button className="bg-gray-seven p-3 rounded-full text-[#999999] hover:bg-green-two hover:transition-all hover:text-white">
             <FaAngleLeft className="text-xl" />
@@ -35,7 +35,7 @@ const CategorySlide = () => {
           breakpoints={{
             640: {
               slidesPerView: 2,
-              spaceBetween: 20,
+              spaceBetween: 10,
             },
             768: {
               slidesPerView: 3,
@@ -57,7 +57,10 @@ const CategorySlide = () => {
         >
           {categories.map((category) => {
             return (
-              <SwiperSlide key={category.id}>
+              <SwiperSlide
+                key={category.id}
+                className="flex justify-evenly md:justify-center"
+              >
                 <SingleSlide {...category} />
               </SwiperSlide>
             );
