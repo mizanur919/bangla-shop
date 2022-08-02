@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ContactFeature = ({ img, title, subTitle }) => {
   return (
-    <div className="flex flex-row items-center gap-7">
+    <div className="flex smd:flex-col 3xl:flex-row items-center gap-7 mt-10 xl:mt-0">
       <div className="image">
         <Link href={"/"}>
           <a className="rounded-sm">
@@ -11,7 +11,7 @@ const ContactFeature = ({ img, title, subTitle }) => {
           </a>
         </Link>
       </div>
-      <div className="info flex flex-col gap-3">
+      <div className="info flex flex-col gap-3 text-center 3xl:text-left">
         <h3 className="text-lg lg:text-2xl font-medium text-gray-one">
           {title}
         </h3>
