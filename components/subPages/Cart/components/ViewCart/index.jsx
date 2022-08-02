@@ -9,56 +9,75 @@ const ViewCart = () => {
   return (
     <div className="container my-8">
       <h1 className="text-center text-3xl mb-8">Shopping Cart</h1>
-      <div className="w-full lg:w-3/4 mx-auto h-[300px] overflow-y-scroll">
-        {selectedProducts.map((item) => {
-          return (
-            <div key={item.id}>
-              <div className="flex justify-between items-center pt-6 w-full mx-auto">
-                <div className="flex just items-center">
-                  <Image
-                    src={item.thumbnailImage}
-                    width={40}
-                    height={40}
-                    alt={item.title}
-                  />
-                  <div className="flex flex-col ml-3">
-                    <span className="md:text-md font-medium">{item.title}</span>
+      {selectedProducts.length > 0 ? (
+        <div className="w-full lg:w-3/4 mx-auto h-[300px] overflow-y-scroll">
+          {selectedProducts.map((item) => {
+            return (
+              <div key={item.id}>
+                <div className="flex justify-between items-center pt-6 w-full mx-auto">
+                  <div className="flex just items-center">
+                    <Image
+                      src={item.thumbnailImage}
+                      width={40}
+                      height={40}
+                      alt={item.title}
+                    />
+                    <div className="flex flex-col ml-3">
+                      <span className="md:text-md font-medium">
+                        {item.title}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex justify-center items-center">
+                    <div className="pr-8 ">
+                      <span className="text-xs font-medium">
+                        Quantity {item.quantity}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex justify-center items-center">
+                    <div className="pr-8 ">
+                      <span className="text-xs font-medium">
+                        {item.quantity} &times; {item.price}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex justify-center items-center">
+                    <div className="pr-8 ">
+                      <span className="text-xs font-medium">
+                        ${item.price * item.quantity}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex justify-center items-center">
-                  <div className="pr-8 ">
-                    <span className="text-xs font-medium">
-                      Quantity {item.quantity}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex justify-center items-center">
-                  <div className="pr-8 ">
-                    <span className="text-xs font-medium">
-                      {item.quantity} &times; {item.price}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex justify-center items-center">
-                  <div className="pr-8 ">
-                    <span className="text-xs font-medium">
-                      ${item.price * item.quantity}
-                    </span>
-                  </div>
-                </div>
+                <hr className="w-1/2 text-gray-two mx-auto my-4" />
               </div>
-              <hr className="w-1/2 text-gray-two mx-auto my-4" />
-            </div>
-          );
-        })}
-      </div>
-      <div className="w-[250px] mx-auto">
-        <Link href={"/checkout"}>
-          <a className="bg-green-two text-center inline-block smd:w-[300px] text-white p-2 rounded-md mt-4">
-            Proceed To Checkout
-          </a>
-        </Link>
-      </div>
+            );
+          })}
+        </div>
+      ) : (
+        <>
+          <p className="text-center my-10">Your cart is empty...</p>
+          <div className="w-[220px] mx-auto">
+            <Link href={"/category"}>
+              <a className="bg-green-two text-center inline-block text-white px-4 py-2 rounded-md mt-4">
+                Start Your Shopping
+              </a>
+            </Link>
+          </div>
+        </>
+      )}
+      {selectedProducts.length > 0 ? (
+        <div className="w-[250px] mx-auto">
+          <Link href={"/checkout"}>
+            <a className="bg-green-two text-center inline-block smd:w-[300px] text-white p-2 rounded-md mt-4">
+              Proceed To Checkout
+            </a>
+          </Link>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
