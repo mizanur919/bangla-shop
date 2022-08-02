@@ -115,7 +115,12 @@ const ProductCard = ({
           <span className="mr-4">Details</span>
           <FaLongArrowAltRight />
         </button>
-        <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+        <Popup
+          open={open}
+          closeOnDocumentClick
+          onClose={closeModal}
+          className="my-popup"
+        >
           <div className="modal">
             <a
               className="text-4xl absolute top-0 right-3 cursor-pointer"

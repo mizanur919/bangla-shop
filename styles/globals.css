@@ -34,12 +34,12 @@
 
 /* Popup */
 
-.popup-content {
-  margin: 10px auto 0 auto;
+.my-popup-content {
+  margin: 10px auto !important;
   background: rgb(255, 255, 255);
   width: 90% !important;
-    padding: 5px;
-    border-radius: 5px;
+  padding: 5px;
+  border-radius: 5px;
   }
   
   .popup-arrow {
