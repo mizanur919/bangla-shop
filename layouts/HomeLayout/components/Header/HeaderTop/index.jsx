@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import {
   FaFacebookF,
   FaHeart,
@@ -18,6 +19,7 @@ import CartPopUp from "../CartPopUp";
 const HeaderTop = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const { data: session } = useSession();
 
   const { selectedProducts, setSelectedProducts } = useContext(quantityContext);
 
@@ -57,6 +59,7 @@ const HeaderTop = () => {
                 <FaRegHeart className="text-xl" />
               </div>
             </button>
+
             <button
               className="cursor-pointer"
               onClick={() => setIsCartOpen(!isCartOpen)}
