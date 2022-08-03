@@ -7,7 +7,9 @@ const AccountDetails = () => {
   if (session) {
     return (
       <div className="container my-20 flex flex-col justify-center">
-        <h1 className="text-3xl text-center">Welcome To Bengal Shop</h1>
+        <h1 className="text-3xl text-center">
+          Welcome To <br /> Bengal Shop
+        </h1>
         <p className="text-center text-lg mt-5">{session.user.name}</p>
         <button
           className="bg-green-two px-4 py-2 text-white w-48 mx-auto mt-10"
