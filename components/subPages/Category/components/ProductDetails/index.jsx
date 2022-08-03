@@ -17,6 +17,9 @@ const ProductPopup = ({
   products,
 }) => {
   const [productQuantity, setProductQuantity] = useState(1);
+  if (productQuantity < 1) {
+    setProductQuantity(1);
+  }
   const {
     selectedProducts,
     setSelectedProducts,

@@ -3,9 +3,10 @@ import { createContext } from "react";
 import { useState } from "react";
 import { Provider } from "react-redux";
 import store from "../store/index";
+import { SessionProvider } from "next-auth/react";
 export const quantityContext = createContext();
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, session }) {
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [priceValue, setPriceValue] = useState([]);
   const [productCount, setProductCount] = useState([]);
@@ -28,7 +29,9 @@ function MyApp({ Component, pageProps }) {
       }}
     >
       <Provider store={store}>
-        <Component {...pageProps} />
+        <SessionProvider session={session}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </Provider>
     </quantityContext.Provider>
   );
