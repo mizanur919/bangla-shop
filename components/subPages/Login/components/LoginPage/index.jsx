@@ -5,7 +5,6 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 const LoginDetails = () => {
   const { data: session } = useSession();
   const router = useRouter();
-  console.log(session.user.image);
   if (!session) {
     return (
       <div className="container my-20 text-center">
