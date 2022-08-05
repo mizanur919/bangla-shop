@@ -43,6 +43,15 @@ const ProductPopup = ({
     if (!findItem && findItem === undefined) {
       setSelectedProducts((prevItem) => [...prevItem, data]);
     }
+
+    if (localStorage.getItem("cartItems") === null) {
+      localStorage.setItem("cartItems", JSON.stringify([data]));
+    } else {
+      let oldData = JSON.parse(localStorage.getItem("cartItems"));
+      oldData.push(data);
+      // localStorage.setItem("cartItems", JSON.stringify([data]));
+      localStorage.setItem("cartItems", JSON.stringify(oldData));
+    }
   };
 
   return (

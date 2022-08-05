@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import {
   FaFacebookF,
   FaHeart,
@@ -12,16 +13,27 @@ import {
 import { MdOutlineShoppingBag, MdShoppingBag } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { quantityContext } from "../../../../../pages/_app";
 import CartPopUp from "../CartPopUp";
 
 const HeaderTop = () => {
+  const [cartItems, setCartItems] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { data: session } = useSession();
 
   const { selectedProducts, setSelectedProducts } = useContext(quantityContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    let data = localStorage.getItem("cartItems");
+    if (!data) {
+      console.log("no data");
+    } else {
+      setCartItems(JSON.parse(data));
+    }
+  }, [selectedProducts]);
 
   return (
     <div className="lg:container">
@@ -67,20 +79,49 @@ const HeaderTop = () => {
               <div className="relative">
                 <MdOutlineShoppingBag className="text-xl text-gray-five" />
                 <a className="absolute -top-6 -right-4 bg-dark-orange w-6 h-6 rounded-full text-white text-xs flex items-center justify-center">
-                  {selectedProducts?.length}
+                  {cartItems?.length}
                 </a>
                 {!isCartOpen ? <></> : <CartPopUp />}
               </div>
             </button>
             <div className="flex flex-row">
-              <Link href={"/"}>
+              {/* <Link href={"/"}>
                 <div className="flex flex-row items-center gap-3">
                   <div className="bg-gray-seven p-3 rounded-full">
                     <BiUser className="text-3xl text-gray-five" />
                   </div>
                   <span className="text-gray-five">Account</span>
                 </div>
-              </Link>
+              </Link> */}
+              {session ? (
+                <button onClick={() => router.push("/account")}>
+                  {session.user.image ? (
+                    <div className="flex flex-row items-center gap-3">
+                      <Image
+                        src={session.user.image}
+                        width={40}
+                        height={40}
+                        style={{ borderRadius: "50%" }}
+                        alt="user image"
+                      />
+                      <span className="text-gray-five">Account</span>
+                    </div>
+                  ) : (
+                    <div className="flex flex-row items-center gap-3">
+                      <div className="bg-gray-seven p-3 rounded-full">
+                        <BiUser className="text-3xl text-gray-five" />
+                      </div>
+                      <span className="text-gray-five">Account</span>
+                    </div>
+                  )}
+                </button>
+              ) : (
+                <button onClick={() => router.push("/login")}>
+                  <div>
+                    <span className="text-gray-five">Account</span>
+                  </div>
+                </button>
+              )}
             </div>
           </div>
         </div>

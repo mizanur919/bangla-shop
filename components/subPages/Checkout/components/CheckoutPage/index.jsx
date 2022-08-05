@@ -1,22 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import * as Yup from "yup";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { quantityContext } from "../../../../../pages/_app";
 import { useFormik } from "formik";
 
 const CheckoutDetails = () => {
   const { selectedProducts, setSelectedProducts } = useContext(quantityContext);
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    let data = localStorage.getItem("cartItems");
+    if (!data) {
+      console.log("no data");
+    } else {
+      setCartItems(JSON.parse(data));
+    }
+  }, [selectedProducts]);
   const shippingCost = 0;
-  if (selectedProducts.length != 0) {
+  if (cartItems.length != 0) {
     shippingCost = 10;
   }
   let subTotal = 0;
-  selectedProducts.map((product) => {
+  cartItems.map((product) => {
     subTotal += product.price * product.quantity;
   });
-
-  console.log("selected products", selectedProducts);
 
   // Formik
   const formik = useFormik({
@@ -206,7 +214,7 @@ const CheckoutDetails = () => {
             <h2 className="text-xl font-bold">Order Summary</h2>
             <div className="mt-8">
               <div className="flex flex-col space-y-4">
-                {selectedProducts.map((product) => {
+                {cartItems.map((product) => {
                   return (
                     <div className="flex space-x-4" key={product.id}>
                       <div>

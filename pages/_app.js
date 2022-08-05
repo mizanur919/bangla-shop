@@ -8,6 +8,7 @@ export const quantityContext = createContext();
 
 function MyApp({ Component, pageProps, session }) {
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [priceValue, setPriceValue] = useState([]);
   const [productCount, setProductCount] = useState([]);
   const [getCategory, setGetCategory] = useState("");
@@ -18,6 +19,8 @@ function MyApp({ Component, pageProps, session }) {
       value={{
         selectedProducts,
         setSelectedProducts,
+        cartItems,
+        setCartItems,
         priceValue,
         setPriceValue,
         getCategory,

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Rating from "react-rating";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { quantityContext } from "../../../pages/_app";
@@ -19,6 +19,7 @@ const ProductCard = ({
   category,
   products,
 }) => {
+  const [productData, setProductData] = useState([]);
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
   const [productQuantity, setProductQuantity] = useState(1);
@@ -26,6 +27,14 @@ const ProductCard = ({
   if (productQuantity < 1) {
     setProductQuantity(1);
   }
+
+  // useEffect(() => {
+  //   if (localStorage.getItem("cartItems") === null) {
+  //     localStorage.setItem("cartItems", JSON.stringify(productData));
+  //   } else {
+  //     localStorage.setItem("cartItems", JSON.stringify(productData));
+  //   }
+  // }, []);
 
   const {
     selectedProducts,
@@ -44,11 +53,18 @@ const ProductCard = ({
       category,
       quantity: productQuantity,
     };
-
     const findItem = selectedProducts?.find((item) => item?.id === id);
-
     if (!findItem && findItem === undefined) {
       setSelectedProducts((prevItem) => [...prevItem, data]);
+    }
+    setProductData((prevItem) => [...prevItem, data]);
+    if (localStorage.getItem("cartItems") === null) {
+      localStorage.setItem("cartItems", JSON.stringify([data]));
+    } else {
+      let oldData = JSON.parse(localStorage.getItem("cartItems"));
+      oldData.push(data);
+      // localStorage.setItem("cartItems", JSON.stringify([data]));
+      localStorage.setItem("cartItems", JSON.stringify(oldData));
     }
   };
 

@@ -1,17 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext } from "react";
+import { useSession, signIn, signOut, getSession } from "next-auth/react";
+import React, { useContext, useEffect, useState } from "react";
 import { quantityContext } from "../../../../../pages/_app";
 
 const ViewCart = () => {
+  const { data: session } = useSession();
   const { selectedProducts, setSelectedProducts } = useContext(quantityContext);
-  console.log("Selected Products:", selectedProducts);
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    let data = localStorage.getItem("cartItems");
+    if (!data) {
+      console.log("no data");
+    } else {
+      setCartItems(JSON.parse(data));
+    }
+  }, [selectedProducts]);
+
+  const handleItemDelete = (id) => {
+    let newCartItems = cartItems.filter((item) => item.id !== id);
+    setCartItems(newCartItems);
+    setSelectedProducts(newCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+  };
+
   return (
     <div className="container my-8">
       <h1 className="text-center text-3xl mb-8">Shopping Cart</h1>
-      {selectedProducts.length > 0 ? (
-        <div className="w-full lg:w-3/4 mx-auto h-[300px] overflow-y-scroll">
-          {selectedProducts.map((item) => {
+      {cartItems.length > 0 ? (
+        <div className="w-full lg:w-3/4 mx-auto h-[300px] overflow-y-scroll px-5">
+          {cartItems.map((item) => {
             return (
               <div key={item.id}>
                 <div className="flex justify-between items-center pt-6 w-full mx-auto">
@@ -49,6 +67,12 @@ const ViewCart = () => {
                       </span>
                     </div>
                   </div>
+                  <button
+                    onClick={() => handleItemDelete(item.id)}
+                    className="bg-red-500 px-3 py-1 text-white text-sm"
+                  >
+                    Remove
+                  </button>
                 </div>
                 <hr className="w-1/2 text-gray-two mx-auto my-4" />
               </div>
@@ -61,13 +85,13 @@ const ViewCart = () => {
           <div className="w-[220px] mx-auto">
             <Link href={"/category"}>
               <a className="bg-green-two text-center inline-block text-white px-4 py-2 rounded-md mt-4">
-                Start Your Shopping
+                Go To Shop
               </a>
             </Link>
           </div>
         </>
       )}
-      {selectedProducts.length > 0 ? (
+      {session && cartItems.length > 0 ? (
         <div className="w-[250px] mx-auto">
           <Link href={"/checkout"}>
             <a className="bg-green-two text-center inline-block smd:w-[300px] text-white p-2 rounded-md mt-4">
@@ -76,7 +100,15 @@ const ViewCart = () => {
           </Link>
         </div>
       ) : (
-        <></>
+        <>
+          <div className="w-[250px] mx-auto">
+            <Link href={"/login"}>
+              <a className="bg-green-two text-center inline-block smd:w-[300px] text-white p-2 rounded-md mt-4">
+                Log In
+              </a>
+            </Link>
+          </div>
+        </>
       )}
     </div>
   );
