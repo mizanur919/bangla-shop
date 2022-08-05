@@ -3,9 +3,9 @@ import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "./lib/mongodb";
 import CredentialsProvider from "next-auth/providers/credentials";
-import Users from "../../models/userModel";
 import bcrypt from "bcrypt";
 import connectDB from "./lib/connectDB";
+import Dataset from "../../../models/userModel";
 connectDB();
 
 export default NextAuth({
@@ -21,7 +21,7 @@ export default NextAuth({
       async authorize(credentials, req) {
         const email = credentials.email;
         const password = credentials.password;
-        const user = await Users.findOne({ email });
+        const user = await Dataset.findOne({ email });
         if (!user) {
           throw new Error("You haven't signed up yet");
         }
