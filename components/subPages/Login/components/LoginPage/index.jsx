@@ -34,26 +34,6 @@ const LoginDetails = ({ csrfToken }) => {
     }
   };
 
-  // const signupUser = async (e) => {
-  //   e.preventDefault();
-  //   const res = await fetch("/api/register", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ email, password }),
-  //   });
-  //   let data = await res.json();
-  //   if (data.message) {
-  //     setMessage(data.message);
-  //   }
-  //   if (data.message === "Registered successfully") {
-  //     let options = { redirect: false, email, password };
-  //     const res = await signIn("credentials", options);
-  //     //return router.push("/");
-  //   }
-  // };
-
   if (!session) {
     return (
       <div className="container my-20 text-center">
