@@ -9,7 +9,7 @@ const Counter = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const target = new Date("August 10, 2022 00:00:00");
+      const target = new Date("August 29, 2022 00:00:00");
       const now = new Date();
       const gap = target.getTime() - now.getTime();
 
